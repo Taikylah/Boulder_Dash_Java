@@ -10,7 +10,7 @@ import model.Model;
 import view.View;
 
 /**
- * The Class Main.
+ * The Class Main.je suis beau
  *
  * @author Jean-Aymeric Diet
  */
