@@ -1,3 +1,2 @@
-# JPU-BlankProject
-
-Base de démarrage pour le projet Jave/POO/UML des 1ières années Exia-Cesi
+# Boulder Dash en Java
+Projet Java UML de 1ere année.
