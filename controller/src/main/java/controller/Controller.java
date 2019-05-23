@@ -38,7 +38,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Appuyer sur les touches 'E', 'F', 'D' ou 'I', pour afficher Hello world dans la langue d votre choix.");
+		this.view.printMessage("Bienvenue dans BoulderDash");
 	}
 
 	/**
@@ -75,16 +75,16 @@ public final class Controller implements IController {
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
 			case English:
-				this.model.loadHelloWorld("GB");
+				this.model.loadHelloWorld("UP");
 				break;
 			case Francais:
-				this.model.loadHelloWorld("FR");
+				this.model.loadHelloWorld("DW");
 				break;
 			case Deutsch:
-				this.model.loadHelloWorld("DE");
+				this.model.loadHelloWorld("RI");
 				break;
 			case Indonesia:
-				this.model.loadHelloWorld("ID");
+				this.model.loadHelloWorld("LE");
 				break;
 			default:
 				break;
