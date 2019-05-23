@@ -10,7 +10,7 @@ import model.Model;
 import view.View;
 
 /**
- * The Class Main.
+ * The Class Main.toti
  *
  * @author Jean-Aymeric Diet
  */
