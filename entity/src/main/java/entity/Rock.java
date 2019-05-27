@@ -1,4 +1,4 @@
-package model;
+package entity;
 
 public class Rock extends Object {
 	
