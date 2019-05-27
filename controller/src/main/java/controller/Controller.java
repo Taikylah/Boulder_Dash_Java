@@ -74,17 +74,32 @@ public final class Controller implements IController {
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
-			case English:
+			case map1:
 				this.model.loadHelloWorld("UP");
 				break;
-			case Francais:
+			case map2:
 				this.model.loadHelloWorld("DW");
 				break;
-			case Deutsch:
+			case map3:
 				this.model.loadHelloWorld("RI");
 				break;
-			case Indonesia:
+			case map4:
 				this.model.loadHelloWorld("LE");
+				break;
+			case map5:
+				this.model.loadHelloWorld("PP");
+				break;
+			case keyup:
+				System.out.println("up");
+				break;
+			case keydown:
+				System.out.println("down");
+				break;
+			case keyright:
+				System.out.println("right");
+				break;
+			case keyleft:
+				System.out.println("left");
 				break;
 			default:
 				break;

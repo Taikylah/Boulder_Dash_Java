@@ -37,20 +37,21 @@ public final class View implements IView, Runnable {
 	 *          the key code
 	 * @return the controller order
 	 */
+	
 	protected static ControllerOrder keyCodeToControllerOrder(final int keyCode) {
 		switch (keyCode) {
 			case KeyEvent.VK_UP:
-				return ControllerOrder.English;
+				return ControllerOrder.keyup;
 			case KeyEvent.VK_DOWN:
-				return ControllerOrder.Francais;
+				return ControllerOrder.keydown;
 			case KeyEvent.VK_RIGHT:
-				return ControllerOrder.Deutsch;
+				return ControllerOrder.keyright;
 			case KeyEvent.VK_LEFT:
-				return ControllerOrder.Indonesia;
+				return ControllerOrder.keyleft;
 			default:
-				return ControllerOrder.English;
+				return null;
 		}
-	}
+	} 
 
 	/*
 	 * (non-Javadoc)
