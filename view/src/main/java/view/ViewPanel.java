@@ -74,25 +74,29 @@ class ViewPanel extends JPanel implements Observer {
         
         //if player mange le mur
         
-        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51) {	// Player can only break the dirt and grab diamond
+        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51 || map[X/16][Y/16] == 52) {	// Player can only break the dirt, grab diamond and walk on the path
         	System.out.println(X/16);
         	System.out.println(Y/16);
         	System.out.println(map[X/16][Y/16]);
         	if(X < Xorg) {
-	        g.drawImage(img2, Xorg, Yorg, null);
+	        g.drawImage(img2, Xorg, Yorg, null);// print the path Sprite
+	        map[Xorg/16][Yorg/16] = 52;//set the ID of the Path in the array
 	        }
 	 
 	        if(X > Xorg) {
 	        g.drawImage(img2, Xorg, Yorg, null);
+	        map[Xorg/16][Yorg/16] = 52;
 	        }
 	        
 	        if(Y < Yorg) {
 	        g.drawImage(img2, Xorg, Yorg, null);
+	        map[Xorg/16][Yorg/16] = 52;
 	
 	        }
 	        
 	        if(Y > Yorg) {
 	        g.drawImage(img2, Xorg, Yorg, null);
+	        map[Xorg/16][Yorg/16] = 52;
 	
 	        }
 	        //System.out.println(Xorg);
@@ -116,7 +120,7 @@ class ViewPanel extends JPanel implements Observer {
 	         Heros.X = Xorg;
 	         Heros.Y = Yorg;
         }
-        if (X== 288 && Y== 256 && Score >= 10) {
+        if (X== 288 && Y== 256 && Score >= 10) {	//end the game when player get 10 Diamond and is on the exit sprite
         	System.out.println("GG!!");
         	System.exit(0);
         }
@@ -125,6 +129,24 @@ class ViewPanel extends JPanel implements Observer {
         }
     }
     
+    public void rockfall() {	//A voir car ne rentre pas dans boucles FOR
+    	System.out.println("rockfall");
+    	for(int x = 1; x == 20; x++){
+    		System.out.println("x");
+    		for(int y = 1; y == 20; y++) {
+    			System.out.println("y");
+    			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock
+    				System.out.println("Cailloux");
+    				if(map[x-1][y] == 52) {// if the block under the rock is a path
+    					map[x-1][y] = 50;// down the rock
+    					map[x][y] = 52;// place a path at the old place of the rock
+    					//this.repaint();
+    					System.out.println("rock felt");
+    				}
+    			}
+    		}
+    	}
+    }
     
     /**
      * Sets the view frame.

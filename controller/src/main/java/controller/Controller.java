@@ -100,6 +100,7 @@ public final class Controller implements IController {
                 	Heros.Y=16;
                     }
                 this.view.displayPlayer();
+                this.view.rockFall();
                 System.out.println("Y = " + Heros.Y);
 				break;
 			case keydown:
@@ -112,6 +113,7 @@ public final class Controller implements IController {
                 	Heros.Y=304;
                     }
                 this.view.displayPlayer();
+                this.view.rockFall();
                 System.out.println("Y = " + Heros.Y);
 				break;
 			case keyright:
@@ -124,6 +126,7 @@ public final class Controller implements IController {
                 	Heros.X=288;
                     }
                 this.view.displayPlayer();
+                this.view.rockFall();
                 System.out.println("X = " + Heros.X);
                	break;
 			case keyleft:
@@ -136,6 +139,7 @@ public final class Controller implements IController {
                 	Heros.X=16;
                     }
                 this.view.displayPlayer();
+                this.view.rockFall();
                 System.out.println("X = " + Heros.X);
 				break;
 			default:

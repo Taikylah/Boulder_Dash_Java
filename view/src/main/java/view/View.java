@@ -100,6 +100,12 @@ public final class View implements IView, Runnable {
             Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
+	@Override
+	public void rockFall() {
+		// TODO Auto-generated method stub
+		((ViewPanel) this.viewFrame.getContentPane()).rockfall();
+	}
 	
 	
 }

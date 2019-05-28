@@ -18,4 +18,5 @@ public interface IView {
 	void printMessage(final String message);
 	void update();
 	public void displayPlayer();
+	public void rockFall();
 }
