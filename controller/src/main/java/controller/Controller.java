@@ -108,8 +108,8 @@ public final class Controller implements IController {
 				Heros.joueur = 1;
 				Heros.Y=Heros.Y+16;
                 
-                if (Heros.Y==336) {
-                	Heros.Y=320;
+                if (Heros.Y==320) {
+                	Heros.Y=304;
                     }
                 this.view.displayPlayer();
                 System.out.println("Y = " + Heros.Y);
@@ -120,8 +120,8 @@ public final class Controller implements IController {
 				Heros.joueur = 4;
 				Heros.X=Heros.X+16;
                 
-                if (Heros.X==336) {
-                	Heros.X=320;
+                if (Heros.X==304) {
+                	Heros.X=288;
                     }
                 this.view.displayPlayer();
                 System.out.println("X = " + Heros.X);

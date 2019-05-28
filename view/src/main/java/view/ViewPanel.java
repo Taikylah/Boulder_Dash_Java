@@ -25,7 +25,8 @@ class ViewPanel extends JPanel implements Observer {
 
 	
 	public int Xorg = 16;
-    public int Yorg = 32;
+    public int Yorg = 16;
+    public int Score = 0;
     /**
      * The view frame.
      */
@@ -70,30 +71,58 @@ class ViewPanel extends JPanel implements Observer {
     	Image img = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
         //g.drawImage(img, X, Y, null);
         Image img2 = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\path.png"));
-
-        if(X < Xorg) {
-        g.drawImage(img2, Xorg, Yorg, null);
-        }
- 
-        if(X > Xorg) {
-        g.drawImage(img2, Xorg, Yorg, null);
+        
+        //if player mange le mur
+        
+        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51) {	// Player can only break the dirt and grab diamond
+        	System.out.println(X/16);
+        	System.out.println(Y/16);
+        	System.out.println(map[X/16][Y/16]);
+        	if(X < Xorg) {
+	        g.drawImage(img2, Xorg, Yorg, null);
+	        }
+	 
+	        if(X > Xorg) {
+	        g.drawImage(img2, Xorg, Yorg, null);
+	        }
+	        
+	        if(Y < Yorg) {
+	        g.drawImage(img2, Xorg, Yorg, null);
+	
+	        }
+	        
+	        if(Y > Yorg) {
+	        g.drawImage(img2, Xorg, Yorg, null);
+	
+	        }
+	        //System.out.println(Xorg);
+	        //System.out.println(Yorg);
+	         Xorg = X;
+	         Yorg = Y;
+	         g.drawImage(img, X, Y, null);
+	    	}
+        
+        if( map[X/16][Y/16] == 51) {	// Count number of Diamond
+        	Score ++;
+        	System.out.println(Score);
         }
         
-        if(Y < Yorg) {
-        g.drawImage(img2, Xorg, Yorg, null);
-
+        
+        if (map[X/16][Y/16] == 49 || map[X/16][Y/16] == 50) { // if the player try to step on a wall or a rock he is send back to his previous position
+        	System.out.println(X/16);
+        	System.out.println(Y/16);
+        	System.out.println(map[X/16][Y/16]);
+        	g.drawImage(img, Xorg, Yorg, null);
+	         Heros.X = Xorg;
+	         Heros.Y = Yorg;
+        }
+        if (X== 288 && Y== 256 && Score >= 10) {
+        	System.out.println("GG!!");
+        	System.exit(0);
         }
         
-        if(Y > Yorg) {
-        g.drawImage(img2, Xorg, Yorg, null);
-
+        
         }
-        //System.out.println(Xorg);
-        //System.out.println(Yorg);
-         Xorg = X;
-         Yorg = Y;
-         g.drawImage(img, X, Y, null);
-    	}
     }
     
     
@@ -124,7 +153,7 @@ class ViewPanel extends JPanel implements Observer {
     protected void paintComponent(final Graphics graphics) {
         graphics.clearRect(0, 0, this.getWidth(), this.getHeight());
         String[] message = this.getViewFrame().getModel().getHelloWorld().getMessage().split(";");
-        int hauteur = 16;
+        int hauteur = 0;
         int y = 0;
         for (String msg : message) {
             //Split msg to get 1 element
