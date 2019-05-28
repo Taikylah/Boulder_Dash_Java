@@ -1,6 +1,8 @@
 package view;
 
-import entity.Rock;
+import entity.*;
+
+
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
@@ -31,7 +33,7 @@ class ViewPanel extends JPanel implements Observer {
     /**
      * Tableau map
      */
-    public int[][] map = new int[19][19];
+    public int[][] map = new int[20][20];
 
     /**
      * Instantiates a new view panel.
@@ -83,13 +85,30 @@ class ViewPanel extends JPanel implements Observer {
         int y = 0;
         for (String msg : message) {
             //Split msg to get 1 element
+        	
             char[] splitMsg = msg.toCharArray();
+           
             //boucle pour afficher
             for (int i = 0; i < splitMsg.length; i++) {
                 map[i][y] = splitMsg[i];
+                System.out.println(map[i][y]);
                 //En fonction du nb, on affiche telle ou telle img
                 switch (splitMsg[i]) {
-                    case 1:
+                    case 49:
+                        try {
+                            //i*16 pour les px
+                            graphics.drawImage(new Wall(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
+                                @Override
+                                public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                                    // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                    return false;
+                                }
+                            });
+                        } catch (IOException ex) {
+                            Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    case 50:
                         try {
                             //i*16 pour les px
                             graphics.drawImage(new Rock(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
