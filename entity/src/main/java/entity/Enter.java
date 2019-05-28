@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
 
-public class Diamond extends Object {
+public class Enter extends Object {
 
     private Image image;
     
@@ -15,13 +15,13 @@ public class Diamond extends Object {
 		notify.controleur();
 	}*/
     
-     public Diamond(int x, int y) throws IOException {
+     public Enter(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\Diamond.png"));
+        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\Enter.png"));
     }
 
-    public Diamond(int x, int y, String pathImage) throws IOException {
+    public Enter(int x, int y, String pathImage) throws IOException {
         this.x = x;
         this.y = y;
         this.image = ImageIO.read(new File(pathImage));

@@ -94,6 +94,20 @@ class ViewPanel extends JPanel implements Observer {
                 System.out.println(map[i][y]);
                 //En fonction du nb, on affiche telle ou telle img
                 switch (splitMsg[i]) {
+                case 48:
+                    try {
+                        //i*16 pour les px
+                        graphics.drawImage(new Dirt(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
+                            @Override
+                            public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                                // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                return false;
+                            }
+                        });
+                    } catch (IOException ex) {
+                        Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                    break;
                     case 49:
                         try {
                             //i*16 pour les px
@@ -112,6 +126,48 @@ class ViewPanel extends JPanel implements Observer {
                         try {
                             //i*16 pour les px
                             graphics.drawImage(new Rock(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
+                                @Override
+                                public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                                    // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                    return false;
+                                }
+                            });
+                        } catch (IOException ex) {
+                            Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    case 51:
+                        try {
+                            //i*16 pour les px
+                            graphics.drawImage(new Diamond(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
+                                @Override
+                                public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                                    // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                    return false;
+                                }
+                            });
+                        } catch (IOException ex) {
+                            Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    case 53:
+                        try {
+                            //i*16 pour les px
+                            graphics.drawImage(new Enter(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
+                                @Override
+                                public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                                    // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                                    return false;
+                                }
+                            });
+                        } catch (IOException ex) {
+                            Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                        break;
+                    case 54:
+                        try {
+                            //i*16 pour les px
+                            graphics.drawImage(new Out(i * 16, hauteur).getImage(), i * 16, hauteur, new ImageObserver() {
                                 @Override
                                 public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
                                     // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
