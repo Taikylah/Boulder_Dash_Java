@@ -4,6 +4,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.Heros;
 
 /**
  * The Class Controller.
@@ -91,15 +92,51 @@ public final class Controller implements IController {
 				break;
 			case keyup:
 				System.out.println("up");
+				
+				Heros.joueur = 2;
+				Heros.Y=Heros.Y-16;
+                
+                if (Heros.Y==0) {
+                	Heros.Y=16;
+                    }
+                this.view.displayPlayer();
+                System.out.println("Y = " + Heros.Y);
 				break;
 			case keydown:
 				System.out.println("down");
+				
+				Heros.joueur = 1;
+				Heros.Y=Heros.Y+16;
+                
+                if (Heros.Y==336) {
+                	Heros.Y=320;
+                    }
+                this.view.displayPlayer();
+                System.out.println("Y = " + Heros.Y);
 				break;
 			case keyright:
 				System.out.println("right");
-				break;
+				
+				Heros.joueur = 4;
+				Heros.X=Heros.X+16;
+                
+                if (Heros.X==336) {
+                	Heros.X=320;
+                    }
+                this.view.displayPlayer();
+                System.out.println("X = " + Heros.X);
+               	break;
 			case keyleft:
 				System.out.println("left");
+				
+				Heros.joueur = 3;
+				Heros.X=Heros.X-16;
+                
+                if (Heros.X==0) {
+                	Heros.X=16;
+                    }
+                this.view.displayPlayer();
+                System.out.println("X = " + Heros.X);
 				break;
 			default:
 				break;

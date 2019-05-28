@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Color;
 import java.awt.GraphicsConfiguration;
 import java.awt.HeadlessException;
 import java.awt.event.KeyEvent;
@@ -10,6 +11,7 @@ import javax.swing.JOptionPane;
 
 import contract.IController;
 import contract.IModel;
+
 
 /**
  * The Class ViewFrame.
@@ -161,6 +163,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyPressed(final KeyEvent e) {
 		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
+		//this.update();
 	}
 
 	/*

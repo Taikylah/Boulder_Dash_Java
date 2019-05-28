@@ -1,6 +1,10 @@
 package view;
 
 import java.awt.event.KeyEvent;
+import java.io.IOException;
+import java.util.Observable;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.SwingUtilities;
 
@@ -8,6 +12,7 @@ import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
 import contract.IView;
+import entity.Heros;
 
 /**
  * The Class View.
@@ -70,6 +75,7 @@ public final class View implements IView, Runnable {
 	public void run() {
 		this.viewFrame.setVisible(true);
 	}
+	
 
 	/**
 	 * Sets the controller.
@@ -80,4 +86,20 @@ public final class View implements IView, Runnable {
 	public void setController(final IController controller) {
 		this.viewFrame.setController(controller);
 	}
+
+	@Override
+	public void update() {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void displayPlayer(){
+        try {
+            ((ViewPanel) this.viewFrame.getContentPane()).displayPlayer(this.viewFrame.getContentPane().getGraphics(), Heros.X, Heros.Y);
+        } catch (IOException ex) {
+            Logger.getLogger(View.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+	
+	
 }

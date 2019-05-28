@@ -6,12 +6,14 @@ import entity.*;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.image.ImageObserver;
+import java.io.File;
 import java.io.IOException;
 import java.util.Observable;
 import java.util.Observer;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.imageio.ImageIO;
 import javax.swing.JPanel;
 
 /**
@@ -21,6 +23,9 @@ import javax.swing.JPanel;
  */
 class ViewPanel extends JPanel implements Observer {
 
+	
+	public int Xorg = 16;
+    public int Yorg = 32;
     /**
      * The view frame.
      */
@@ -54,6 +59,44 @@ class ViewPanel extends JPanel implements Observer {
         return this.viewFrame;
     }
 
+    
+    public void displayPlayer(Graphics g, int X, int Y) throws IOException {
+    	
+    	if(X == 16 & Y == 32) {
+    		 Xorg = 16;
+    	     Yorg = 32;
+    	}
+    	else {
+    	Image img = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
+        //g.drawImage(img, X, Y, null);
+        Image img2 = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\path.png"));
+
+        if(X < Xorg) {
+        g.drawImage(img2, Xorg, Yorg, null);
+        }
+ 
+        if(X > Xorg) {
+        g.drawImage(img2, Xorg, Yorg, null);
+        }
+        
+        if(Y < Yorg) {
+        g.drawImage(img2, Xorg, Yorg, null);
+
+        }
+        
+        if(Y > Yorg) {
+        g.drawImage(img2, Xorg, Yorg, null);
+
+        }
+        //System.out.println(Xorg);
+        //System.out.println(Yorg);
+         Xorg = X;
+         Yorg = Y;
+         g.drawImage(img, X, Y, null);
+    	}
+    }
+    
+    
     /**
      * Sets the view frame.
      *
@@ -185,7 +228,9 @@ class ViewPanel extends JPanel implements Observer {
             // graphics.drawString(msg, 1,hauteur);
             hauteur += 16;
             y++;
+           
         }
 
     }
+    
 }
