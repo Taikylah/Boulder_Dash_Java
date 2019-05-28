@@ -9,7 +9,7 @@ public class Rock extends Object {
 
     private Image image;
     
-    private final String PATH_IMAGE = "img/rock.png";
+    private final String PATH_IMAGE = "rock.png";
 
     /*public Rock() {
 		notify.controleur();
