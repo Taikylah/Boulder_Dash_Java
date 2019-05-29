@@ -148,14 +148,34 @@ class ViewPanel extends JPanel implements Observer {
     		
     		for(int y = 0; y < 20; y++) {
     			
-    			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock
-    				if(map[x][y+1] == 52) {// if the block under the rock is a path
+    			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock GOOD
+    				if(map[x-1][y] == 52) {// if the block under the rock is a path
     					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
     					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
-    					map[x][y+1] = 50;// down the rock
+    					map[x-1][y] = 50;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
     				}
+    				else if(map[x-1][y] == 50) {
+	    				if(map[x][y-1] == 52 & map[x-1][y-1] == 52) {
+	    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+	    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+	    					map[x-1][y-1] = 50;
+	    					map[x][y] = 52;
+
+	    				}
+	    				else if(map[x][y+1] == 52 & map[x-1][y+1] == 52) {
+	    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+	    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+	    					map[x-1][y+1] = 50;
+	    					map[x][y] = 52;
+
+	    				}
+    				}
     			}
+    			
+    			
+    			
+    			
     			if(map[x][y] == 51) {//for each case in map[][] check if it is a rock
     				if(map[x][y+1] == 52) {// if the block under the rock is a path
     					if(Heros.X == x*16 && Heros.Y == y*16) {
