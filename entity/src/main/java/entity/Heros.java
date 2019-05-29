@@ -19,8 +19,15 @@ public static BufferedImage up, down, right, left;
     public static int Y = 32;
     public static int joueur = 1;
     
-    public void player() {
-
+    public static void player() {
+    	try {
+    		up = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\up.png"));
+    		down = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
+    		right = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\right.png"));
+    		left = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\left.png"));
+    	}catch(IOException ex){
+    	ex.printStackTrace();	
+    	}
     }
     
    
@@ -45,14 +52,7 @@ public static BufferedImage up, down, right, left;
             dir = right;
         } */
 	   public static Image image() {
-	    	try {
-	    		up = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\up.png"));
-	    		down = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
-	    		right = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\right.png"));
-	    		left = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\left.png"));
-	    	}catch(IOException ex){
-	    	ex.printStackTrace();	
-	    	}
+	    	player();
       if (Heros.joueur == 1) {
 		BufferedImage img = down;
 		return img;
