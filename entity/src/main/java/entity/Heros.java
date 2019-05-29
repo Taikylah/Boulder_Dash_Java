@@ -16,7 +16,7 @@ public class Heros extends Canvas{
 public static BufferedImage up, down, right, left;
 
     public static int X = 16;
-    public static int Y = 32;
+    public static int Y = 16;
     public static int joueur = 1;
     
     public static void player() {
