@@ -27,6 +27,7 @@ class ViewPanel extends JPanel implements Observer {
 	public int Xorg = 16;
     public int Yorg = 16;
     public int Score = 0;
+    
     /**
      * The view frame.
      */
@@ -60,7 +61,6 @@ class ViewPanel extends JPanel implements Observer {
         return this.viewFrame;
     }
 
-    
     public void displayPlayer(Graphics g, int X, int Y) throws IOException {
     	
     	if(X == 16 & Y == 32) {
@@ -68,13 +68,16 @@ class ViewPanel extends JPanel implements Observer {
     	     Yorg = 32;
     	}
     	else {
-    	Image img = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
+    		
+    		
+    	
+    	//ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
         //g.drawImage(img, X, Y, null);
         Image img2 = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\path.png"));
         
         //if player mange le mur
         
-        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51 || map[X/16][Y/16] == 52) {	// Player can only break the dirt, grab diamond and walk on the path
+        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51 || map[X/16][Y/16] == 52 || map[X/16][Y/16] == 53) {	// Player can only break the dirt, grab diamond and walk on the path
         	System.out.println(X/16);
         	System.out.println(Y/16);
         	System.out.println(map[X/16][Y/16]);
@@ -103,7 +106,7 @@ class ViewPanel extends JPanel implements Observer {
 	        //System.out.println(Yorg);
 	         Xorg = X;
 	         Yorg = Y;
-	         g.drawImage(img, X, Y, null);
+	         g.drawImage(Heros.image(), X, Y, null);
 	    	}
         
         if( map[X/16][Y/16] == 51) {	// Count number of Diamond
@@ -116,7 +119,7 @@ class ViewPanel extends JPanel implements Observer {
         	System.out.println(X/16);
         	System.out.println(Y/16);
         	System.out.println(map[X/16][Y/16]);
-        	g.drawImage(img, Xorg, Yorg, null);
+        	g.drawImage(Heros.image(), Xorg, Yorg, null);
 	         Heros.X = Xorg;
 	         Heros.Y = Yorg;
         }

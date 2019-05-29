@@ -4,10 +4,12 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import junit.framework.TestCase;
+
 public class DirtTest extends TestCase{
 
 	/*
-	@Test
+	@Ignore
 	public void test() {
 		assertEquals(new, Dirt.convert_Dirt(), "1");
 	*/
