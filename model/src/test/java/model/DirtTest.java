@@ -6,14 +6,14 @@ import org.junit.Test;
 
 import junit.framework.TestCase;
 
-public class DirtTest extends TestCase{
+public class DirtTest{
 
 	/*
 	@Ignore
 	public void test() {
 		assertEquals(new, Dirt.convert_Dirt(), "1");
 	*/
-	public DirtTest (String Dirt) { 
+	/*public DirtTest (String Dirt) { 
 		
 		super(Dirt);
 	}
@@ -24,6 +24,6 @@ public class DirtTest extends TestCase{
 	
 	
 		
-	}
+	}*/
 
 }
