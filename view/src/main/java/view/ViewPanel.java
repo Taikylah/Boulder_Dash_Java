@@ -158,10 +158,16 @@ class ViewPanel extends JPanel implements Observer {
     			}
     			if(map[x][y] == 51) {//for each case in map[][] check if it is a rock
     				if(map[x][y+1] == 52) {// if the block under the rock is a path
+    					if(Heros.X == x*16 && Heros.Y == y*16) {
+    						g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+        					map[x][y] = 52;// place a path at the old place of the rock
+
+    					}else {
     					g.drawImage(new Diamond(x * 16, y*16).getImage(), x * 16, y*16+16,null);
     					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
     					map[x][y+1] = 51;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
+    					}
     				}
     			}
     		}
