@@ -1,5 +1,6 @@
 package view;
 
+import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
 import java.util.Observable;
@@ -102,9 +103,9 @@ public final class View implements IView, Runnable {
     }
 
 	@Override
-	public void rockFall() {
+	public void rockFall() throws IOException{
 		// TODO Auto-generated method stub
-		((ViewPanel) this.viewFrame.getContentPane()).rockfall();
+		((ViewPanel) this.viewFrame.getContentPane()).rockfall(this.viewFrame.getContentPane().getGraphics());
 	}
 	
 	

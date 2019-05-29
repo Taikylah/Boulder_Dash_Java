@@ -142,21 +142,26 @@ class ViewPanel extends JPanel implements Observer {
         }
     }
     
-    public void rockfall() {	//A voir car ne rentre pas dans boucles FOR
-    	System.out.println("rockfall");
+    public void rockfall(Graphics g) throws IOException {	
+    	
     	for(int x = 0; x < 20; x++){
-    		System.out.println("x");
+    		
     		for(int y = 0; y < 20; y++) {
-    			System.out.println("y");
+    			
     			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock
-    				System.out.println("Cailloux");
     				if(map[x][y+1] == 52) {// if the block under the rock is a path
+    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
     					map[x][y+1] = 50;// down the rock
-    					
     					map[x][y] = 52;// place a path at the old place of the rock
-    					System.out.println("refresh call");
-    					this.getGraphics();
-    					System.out.println("rock felt");
+    				}
+    			}
+    			if(map[x][y] == 51) {//for each case in map[][] check if it is a rock
+    				if(map[x][y+1] == 52) {// if the block under the rock is a path
+    					g.drawImage(new Diamond(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+    					map[x][y+1] = 51;// down the rock
+    					map[x][y] = 52;// place a path at the old place of the rock
     				}
     			}
     		}
@@ -180,44 +185,10 @@ class ViewPanel extends JPanel implements Observer {
     public void update(final Observable arg0, final Object arg1) {
         this.repaint();
     }
-    public void refresh(final Graphics graphics) {
-    	int hauteur = 0;
-    	for(int x = 0; x < 20; x++){
-    		for(int y = 0; y < 20; y++) {
-    			System.out.println(map[x][y]);
-    		 	switch (map[x][y]) {
-	            case 50:	//Rock generation
-	                try {
-	                    //i*16 pour les px
-	                    graphics.drawImage(new Rock(x * 16, hauteur).getImage(), x * 16, hauteur,null);
-	                } catch (IOException ex) {
-	                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
-	                }
-	                break;
-	            case 51:	//Diamond generation
-	                try {
-	                    //i*16 pour les px
-	                    graphics.drawImage(new Diamond(x * 16, hauteur).getImage(), x * 16, hauteur,null);
-	                } catch (IOException ex) {
-	                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
-	                }
-	                break;
-	            case 52:	//Path generation
-	                try {
-	                    //i*16 pour les px
-	                    graphics.drawImage(new Path(x * 16, hauteur).getImage(), x * 16, hauteur,null);
-	                } catch (IOException ex) {
-	                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
-	                }
-	                break;
-	            default:
-	                graphics.drawString("error", x*16, hauteur);
-	        }  
-    	}
-    		
-    }
+    
+   
 
-   }
+   
     /*
 	 * (non-Javadoc)
 	 *
@@ -237,7 +208,6 @@ class ViewPanel extends JPanel implements Observer {
             //boucle pour afficher
             for (int i = 0; i < splitMsg.length; i++) {
                 map[i][y] = splitMsg[i];
-                System.out.println(map[i][y]);
                 //En fonction du nb, on affiche telle ou telle img
                 switch (splitMsg[i]) {
                 case 48:
@@ -300,7 +270,6 @@ class ViewPanel extends JPanel implements Observer {
                         graphics.drawString("error", i*16, hauteur);
                 }
             }
-            // graphics.drawString(msg, 1,hauteur);
             hauteur += 16;
             y++;
            
