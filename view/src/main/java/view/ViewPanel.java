@@ -134,16 +134,16 @@ class ViewPanel extends JPanel implements Observer {
     
     public void rockfall() {	//A voir car ne rentre pas dans boucles FOR
     	System.out.println("rockfall");
-    	for(int x = 1; x == 20; x++){
+    	for(int x = 0; x <= 20; x++){
     		System.out.println("x");
-    		for(int y = 1; y == 20; y++) {
+    		for(int y = 0; y <= 20; y++) {
     			System.out.println("y");
     			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock
     				System.out.println("Cailloux");
     				if(map[x-1][y] == 52) {// if the block under the rock is a path
     					map[x-1][y] = 50;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
-    					//this.repaint();
+    					this.refresh(null, x, y);
     					System.out.println("rock felt");
     				}
     			}
@@ -168,7 +168,99 @@ class ViewPanel extends JPanel implements Observer {
     public void update(final Observable arg0, final Object arg1) {
         this.repaint();
     }
+    public void refresh(final Graphics graphics, int x, int y) {
+    	int hauteur = 0;
+    	switch (map[x][y]) {
+        case 48:
+            try {
+                //i*16 pour les px
+                graphics.drawImage(new Dirt(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                    @Override
+                    public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                        return false;
+                    }
+                });
+            } catch (IOException ex) {
+                Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            break;
+            case 49:
+                try {
+                    //i*16 pour les px
+                    graphics.drawImage(new Wall(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            return false;
+                        }
+                    });
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case 50:
+                try {
+                    //i*16 pour les px
+                    graphics.drawImage(new Rock(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            return false;
+                        }
+                    });
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case 51:
+                try {
+                    //i*16 pour les px
+                    graphics.drawImage(new Diamond(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            return false;
+                        }
+                    });
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case 53:
+                try {
+                    //i*16 pour les px
+                    graphics.drawImage(new Enter(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            return false;
+                        }
+                    });
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            case 54:
+                try {
+                    //i*16 pour les px
+                    graphics.drawImage(new Out(x * 16, hauteur).getImage(), x * 16, hauteur, new ImageObserver() {
+                        @Override
+                        public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height) {
+                            // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                            return false;
+                        }
+                    });
+                } catch (IOException ex) {
+                    Logger.getLogger(ViewPanel.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                break;
+            default:
+                graphics.drawString("error", x*16, hauteur);
+        }
+    
 
+    }
     /*
 	 * (non-Javadoc)
 	 *
