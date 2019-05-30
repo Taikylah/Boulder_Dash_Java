@@ -41,7 +41,7 @@ public final class Controller implements IController {
 	 * @see contract.IController#control()
 	 */
 	public void control() {
-		this.view.printMessage("Bienvenue dans BoulderDash");
+		this.view.printMessage("Welcome to BoulderDash");
 	}
 
 	/**
