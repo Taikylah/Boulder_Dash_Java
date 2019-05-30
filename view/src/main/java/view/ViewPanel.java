@@ -144,9 +144,9 @@ class ViewPanel extends JPanel implements Observer {
     
     public void rockfall(Graphics g) throws IOException {	
     	
-    	for(int x = 0; x < 20; x++){
+    	for(int x = 1; x < 20; x++){
     		
-    		for(int y = 0; y < 20; y++) {
+    		for(int y = 1; y < 20; y++) {
     			
     			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock GOOD
     				if(map[x-1][y] == 52) {// if the block under the rock is a path
@@ -155,43 +155,56 @@ class ViewPanel extends JPanel implements Observer {
     					map[x-1][y] = 50;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
     				}
-    				else if(map[x-1][y] == 50) {
-	    				if(map[x][y-1] == 52 & map[x-1][y-1] == 52) {
-	    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
-	    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
-	    					map[x-1][y-1] = 50;
-	    					map[x][y] = 52;
-
-	    				}
-	    				else if(map[x][y+1] == 52 & map[x-1][y+1] == 52) {
-	    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
-	    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
-	    					map[x-1][y+1] = 50;
-	    					map[x][y] = 52;
-
-	    				}
+    				else if(map[x-1][y-1] == 49) {
+    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16,null);
+    					map[x][y] = 50;
+    				}
+    				else if(map[x-1][y+1] == 49) {
+    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16,null);
+    					map[x][y] = 50;
+    				}
+    				else if(map[x-1][y] == 50) {// if the block under the rock is a rock
+		    				if(map[x][y-1] == 52 ) {
+		    					if(map[x-1][y-1] == 52) {// check if left side of rocks is free
+		    				
+		    					g.drawImage(new Rock(x * 16, y * 16).getImage(), (x-1) * 16, (y-1) * 16,null);//+16
+		    					g.drawImage(new Path(x * 16, y * 16).getImage(), x * 16, y * 16,null);
+		    					map[x-1][y-1] = 50;// down the rock
+		    					map[x][y] = 52;//put path instead
+		    					}
+		    				}
+			    			else if(map[x][y+1] == 52) {
+			    					if(map[x-1][y+1] == 52) {// check if right side is free
+			    				
+			    					g.drawImage(new Rock(x * 16, y * 16).getImage(), (x-1) * 16, (y+1) * 16,null);
+			    					g.drawImage(new Path(x * 16, y * 16).getImage(), x * 16, y * 16,null);
+			    					map[x-1][y+1] = 50;// down the rock
+			    					map[x][y] = 52;//put path instead
+		
+			    					}	
+			    				}	
     				}
     			}
-    			
-    			
-    			
-    			
-    			if(map[x][y] == 51) {//for each case in map[][] check if it is a rock
-    				if(map[x][y+1] == 52) {// if the block under the rock is a path
+    			if(map[x][y] == 51) {//for each case in map[][] check if it is a diamond
+    				if(map[x][y+1] == 52) {// if the block under the diamond is a path
     					if(Heros.X == x*16 && Heros.Y == y*16) {
     						g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
-        					map[x][y] = 52;// place a path at the old place of the rock
+        					map[x][y] = 52;// place a path at the old place of the diamond
 
     					}else {
     					g.drawImage(new Diamond(x * 16, y*16).getImage(), x * 16, y*16+16,null);
     					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
-    					map[x][y+1] = 51;// down the rock
-    					map[x][y] = 52;// place a path at the old place of the rock
+    					map[x][y+1] = 51;// down the Diamond
+    					map[x][y] = 52;// place a path at the old place of the diamond
     					}
     				}
     			}
+    			if(map[x][y] == 49) {
+    				g.drawImage(new Wall(x * 16, y*16).getImage(), x * 16, y*16,null);
+    			}
     		}
     	}
+    
     }
     
     /**
