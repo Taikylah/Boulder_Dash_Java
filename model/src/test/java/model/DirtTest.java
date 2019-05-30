@@ -1,11 +1,5 @@
 package model;
 
-import static org.junit.Assert.*;
-
-import org.junit.Test;
-
-import junit.framework.TestCase;
-
 public class DirtTest{
 
 	/*
