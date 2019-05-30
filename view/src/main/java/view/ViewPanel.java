@@ -113,6 +113,7 @@ class ViewPanel extends JPanel implements Observer {
 	        //System.out.println(Yorg);
 	         Xorg = X;
 	         Yorg = Y;
+	         g.drawImage(img2, X, Y, null);
 	         g.drawImage(Heros.image(), X, Y, null);
 	    	}
         
@@ -131,16 +132,17 @@ class ViewPanel extends JPanel implements Observer {
 	         Heros.Y = Yorg;
         }
         if (X== 288 && Y== 288 && Score >= 10) {	//end the game when player get 10 Diamond and is on the exit sprite
-        	viewFrame.printMessage("CONGRATS !! Total diamonds : " + Score);;
+        	viewFrame.printMessage("CONGRATS !! Total diamonds : " + Score);
         	System.exit(0);
         }
         if( map[X/16][Y/16] == 55) {	// If player hit a monster he lose
-        	viewFrame.printMessage("GAME OVER !!");;;
+        	viewFrame.printMessage("GAME OVER !!");
         	System.exit(0);
         }
         
         
         }
+        
     }
     
     public void rockfall(Graphics g) throws IOException {	
@@ -197,7 +199,9 @@ class ViewPanel extends JPanel implements Observer {
     			if(map[x][y] == 49) {
     				g.drawImage(new Wall(x * 16, y*16).getImage(), x * 16, y*16,null);
     			}
+    	        
     		}
+    		
     	}
     
     }
