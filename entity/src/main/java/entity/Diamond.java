@@ -18,7 +18,7 @@ public class Diamond extends Object {
      public Diamond(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\Diamond.png"));
+        this.image = ImageIO.read(new File("../entity/Images/Diamond.png"));
     }
 
     public Diamond(int x, int y, String pathImage) throws IOException {

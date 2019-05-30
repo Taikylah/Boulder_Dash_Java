@@ -18,7 +18,7 @@ public class Wall extends Object {
      public Wall(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\wall.png"));
+        this.image = ImageIO.read(new File("../entity/Images/wall.png"));
     }
 
     public Wall(int x, int y, String pathImage) throws IOException {

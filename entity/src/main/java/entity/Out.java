@@ -18,7 +18,7 @@ public class Out extends Object {
      public Out(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\Out.png"));
+        this.image = ImageIO.read(new File("../entity/Images/Out.png"));
     }
 
     public Out(int x, int y, String pathImage) throws IOException {

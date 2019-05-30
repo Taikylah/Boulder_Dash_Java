@@ -18,7 +18,7 @@ public class Dirt extends Object {
      public Dirt(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\dirt.png"));
+        this.image = ImageIO.read(new File("../entity/Images/dirt.png"));
     }
 
     public Dirt(int x, int y, String pathImage) throws IOException {

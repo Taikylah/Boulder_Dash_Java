@@ -79,7 +79,7 @@ class ViewPanel extends JPanel implements Observer {
     	
     	//ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
         //g.drawImage(img, X, Y, null);
-        Image img2 = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\path.png"));
+        Image img2 = ImageIO.read(new File("../entity/Images/path.png"));
         
         //if player mange le mur
         

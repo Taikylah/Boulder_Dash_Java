@@ -18,7 +18,7 @@ public class Rock extends Object {
      public Rock(int x, int y) throws IOException {
         this.x = x;
         this.y = y;
-        this.image = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\rock.png"));
+        this.image = ImageIO.read(new File("../entity/Images/rock.png"));
     }
 
     public Rock(int x, int y, String pathImage) throws IOException {

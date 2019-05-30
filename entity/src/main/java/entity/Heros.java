@@ -21,10 +21,10 @@ public static BufferedImage up, down, right, left;
     
     public static void player() {
     	try {
-    		up = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\up.png"));
-    		down = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
-    		right = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\right.png"));
-    		left = ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\left.png"));
+    		up = ImageIO.read(new File("../entity/Images/up.png"));
+    		down = ImageIO.read(new File("../entity/Images/down.png"));
+    		right = ImageIO.read(new File("../entity/Images/right.png"));
+    		left = ImageIO.read(new File("../entity/Images/left.png"));
     	}catch(IOException ex){
     	ex.printStackTrace();	
     	}
