@@ -1,9 +1,7 @@
 package view;
 
-import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.io.IOException;
-import java.util.Observable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 

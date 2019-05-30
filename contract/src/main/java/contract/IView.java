@@ -1,7 +1,6 @@
 package contract;
 
 import java.io.IOException;
-import java.util.Observable;
 
 /**
  * The Interface IView.
