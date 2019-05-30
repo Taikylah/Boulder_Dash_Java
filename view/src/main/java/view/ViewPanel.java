@@ -47,6 +47,7 @@ class ViewPanel extends JPanel implements Observer {
      * Tableau map
      */
     public int[][] map = new int[20][20];
+	private Object view;
 
     /**
      * Instantiates a new view panel.
@@ -130,11 +131,11 @@ class ViewPanel extends JPanel implements Observer {
 	         Heros.Y = Yorg;
         }
         if (X== 288 && Y== 288 && Score >= 10) {	//end the game when player get 10 Diamond and is on the exit sprite
-        	System.out.println("GG!!");
+        	viewFrame.printMessage("CONGRATS !! Total diamonds : " + Score);;
         	System.exit(0);
         }
         if( map[X/16][Y/16] == 55) {	// If player hit a monster he lose
-        	System.out.println("Loser!!");
+        	viewFrame.printMessage("GAME OVER !!");;;
         	System.exit(0);
         }
         
