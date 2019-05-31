@@ -10,7 +10,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import entity.Diamond;
@@ -48,9 +47,7 @@ class ViewPanel extends JPanel implements Observer {
      * Tableau map
      */
     public int[][] map = new int[20][20];
-	private Object view;
-
-    /**
+	/**
      * Instantiates a new view panel.
      *
      * @param viewFrame the view frame
