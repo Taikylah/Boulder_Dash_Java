@@ -10,6 +10,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import entity.Diamond;
@@ -32,7 +33,7 @@ class ViewPanel extends JPanel implements Observer {
 	
 	public int Xorg = 16;
     public int Yorg = 16;
-    public int Score = 0;
+    public static int Score = 0;
     
     /**
      * The view frame.
@@ -120,6 +121,7 @@ class ViewPanel extends JPanel implements Observer {
         if( map[X/16][Y/16] == 51) {	// Count number of Diamond
         	Score ++;
         	System.out.println(Score);
+
         }
         
         
@@ -187,6 +189,7 @@ class ViewPanel extends JPanel implements Observer {
     					if(Heros.X == x*16 && Heros.Y == y*16) {
     						g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
         					map[x][y] = 52;// place a path at the old place of the diamond
+        					g.drawImage(Heros.image(), x*16, y*16, null);// had to refresh to player image to avoid the disappear of the player
 
     					}else {
     					g.drawImage(new Diamond(x * 16, y*16).getImage(), x * 16, y*16+16,null);

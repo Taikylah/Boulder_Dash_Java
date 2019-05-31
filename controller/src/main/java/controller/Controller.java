@@ -108,7 +108,7 @@ public final class Controller implements IController {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-                System.out.println("Y = " + Heros.Y);
+			System.out.println("Y = " + Heros.Y);
 				break;
 			case keydown:
 				System.out.println("down");

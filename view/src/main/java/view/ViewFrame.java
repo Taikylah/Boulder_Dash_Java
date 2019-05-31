@@ -6,6 +6,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import contract.IController;
@@ -132,8 +133,9 @@ class ViewFrame extends JFrame implements KeyListener {
 		this.setResizable(false);
 		this.addKeyListener(this);
 		this.setContentPane(new ViewPanel(this));
-		this.setSize(325 + this.getInsets().left + this.getInsets().right, 349 + this.getInsets().top + this.getInsets().bottom);
+		this.setSize(450 + this.getInsets().left + this.getInsets().right, 349 + this.getInsets().top + this.getInsets().bottom);//325x349
 		this.setLocationRelativeTo(null);
+
 	}
 
 	/**
@@ -162,7 +164,7 @@ class ViewFrame extends JFrame implements KeyListener {
 	 */
 	public void keyPressed(final KeyEvent e) {
 		this.getController().orderPerform(View.keyCodeToControllerOrder(e.getKeyCode()));
-		
+
 		
 	}
 
