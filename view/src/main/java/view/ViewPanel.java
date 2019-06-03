@@ -1,5 +1,7 @@
 package view;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.io.File;
@@ -73,75 +75,88 @@ class ViewPanel extends JPanel implements Observer {
     	     Yorg = 16;
     	}
     	else {
-    		
-    		
-    	
-    	//ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
-        //g.drawImage(img, X, Y, null);
-        Image img2 = ImageIO.read(new File("../entity/Images/path.png"));
-        
-        //if player mange le mur
-        
-        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51 || map[X/16][Y/16] == 52 || map[X/16][Y/16] == 53) {	// Player can only break the dirt, grab diamond and walk on the path
-        	System.out.println(X/16);
-        	System.out.println(Y/16);
-        	System.out.println(map[X/16][Y/16]);
-        	if(X < Xorg) {
-	        g.drawImage(img2, Xorg, Yorg, null);// print the path Sprite
-	        map[Xorg/16][Yorg/16] = 52;//set the ID of the Path in the array
-	        }
-	 
-	        if(X > Xorg) {
-	        g.drawImage(img2, Xorg, Yorg, null);
-	        map[Xorg/16][Yorg/16] = 52;
+	    		
+	    		
+	    	
+	    	//ImageIO.read(new File("C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\down.png"));
+	        //g.drawImage(img, X, Y, null);
+	        Image img2 = ImageIO.read(new File("../entity/Images/path.png"));
+	        
+	        //if player mange le mur
+	        
+	        if (map[X/16][Y/16] == 48 || map[X/16][Y/16] == 51 || map[X/16][Y/16] == 52 || map[X/16][Y/16] == 53) {	// Player can only break the dirt, grab diamond, walk on the path and spawn
+	        	System.out.println(X/16);
+	        	System.out.println(Y/16);
+	        	System.out.println(map[X/16][Y/16]);
+	        	if(X < Xorg) {
+			        g.drawImage(img2, Xorg, Yorg, null);// print the path Sprite
+			        map[Xorg/16][Yorg/16] = 52;//set the ID of the Path in the array
+			    }
+		 
+		        if(X > Xorg) {
+		        	g.drawImage(img2, Xorg, Yorg, null);
+		        	map[Xorg/16][Yorg/16] = 52;
+		        }
+		        
+		        if(Y < Yorg) {
+		        	g.drawImage(img2, Xorg, Yorg, null);
+		        	map[Xorg/16][Yorg/16] = 52;
+		
+		        }
+		        
+		        if(Y > Yorg) {
+		        	g.drawImage(img2, Xorg, Yorg, null);
+		        	map[Xorg/16][Yorg/16] = 52;
+		
+		        }
+		        
+		         Xorg = X;
+		         Yorg = Y;
+		         g.drawImage(img2, X, Y, null);
+		         g.drawImage(Heros.image(), X, Y, null);
+		    }
+	        
+	        if( map[X/16][Y/16] == 51) {	// Count number of Diamond
+	        	Score ++;
+	        	System.out.println(Score);
+	        	displayScore();
+	            //g.drawString ("Goal Score = " + levelExitScore, 1000, 350);
 	        }
 	        
-	        if(Y < Yorg) {
-	        g.drawImage(img2, Xorg, Yorg, null);
-	        map[Xorg/16][Yorg/16] = 52;
-	
+	        
+	        if (map[X/16][Y/16] == 49 || map[X/16][Y/16] == 50) { // if the player try to step on a wall or a rock he is send back to his previous position
+	        	System.out.println(X/16);
+	        	System.out.println(Y/16);
+	        	System.out.println(map[X/16][Y/16]);
+	        	g.drawImage(Heros.image(), Xorg, Yorg, null);
+		        Heros.X = Xorg;
+		        Heros.Y = Yorg;
 	        }
 	        
-	        if(Y > Yorg) {
-	        g.drawImage(img2, Xorg, Yorg, null);
-	        map[Xorg/16][Yorg/16] = 52;
-	
+	        if (X== 288 && Y== 288 && Score >= 10) {	//end the game when player get 10 Diamond and is on the exit sprite
+	        	viewFrame.printMessage("CONGRATS !! Total diamonds : " + Score);
+	        	System.exit(0);
 	        }
-	        //System.out.println(Xorg);
-	        //System.out.println(Yorg);
-	         Xorg = X;
-	         Yorg = Y;
-	         g.drawImage(img2, X, Y, null);
-	         g.drawImage(Heros.image(), X, Y, null);
-	    	}
-        
-        if( map[X/16][Y/16] == 51) {	// Count number of Diamond
-        	Score ++;
-        	System.out.println(Score);
-
-        }
-        
-        
-        if (map[X/16][Y/16] == 49 || map[X/16][Y/16] == 50) { // if the player try to step on a wall or a rock he is send back to his previous position
-        	System.out.println(X/16);
-        	System.out.println(Y/16);
-        	System.out.println(map[X/16][Y/16]);
-        	g.drawImage(Heros.image(), Xorg, Yorg, null);
-	         Heros.X = Xorg;
-	         Heros.Y = Yorg;
-        }
-        if (X== 288 && Y== 288 && Score >= 10) {	//end the game when player get 10 Diamond and is on the exit sprite
-        	viewFrame.printMessage("CONGRATS !! Total diamonds : " + Score);
-        	System.exit(0);
-        }
-        if( map[X/16][Y/16] == 55) {	// If player hit a monster he lose
-        	viewFrame.printMessage("GAME OVER !!");
-        	System.exit(0);
-        }
+	        
+	        if( map[X/16][Y/16] == 55) {	// If player hit a monster he lose
+	        	viewFrame.printMessage("GAME OVER !!");
+	        	System.exit(0);
+	        }
         
         
         }
         
+    }
+    
+    void displayScore() {
+    	Graphics score = this.getGraphics();
+    	score.clearRect(330, 20, 250,50);
+    	score.setColor(Color.WHITE);
+    	score.fillRect(330, 20, 250, 50);
+        Font font = new Font("Courier", Font.BOLD, 12);
+        score.setFont(font);
+        score.setColor(Color.BLACK);
+        score.drawString(" Your curent score is " + Score, 330, 30); 
     }
     
     public void rockfall(Graphics g) throws IOException {	
@@ -155,6 +170,12 @@ class ViewPanel extends JPanel implements Observer {
     					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
     					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
     					map[x][y+1] = 50;// down the rock
+    					map[x][y] = 52;// place a path at the old place of the rock
+    				}
+    				else if (map[x][y+1] == 55) {// if the rock fall on a Mob it kill him
+    					g.drawImage(new Diamond(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+    					map[x][y+1] = 51;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
     				}
     				else if(map[x][y+1] == 50) {// if the block under the rock is a rock
@@ -180,6 +201,8 @@ class ViewPanel extends JPanel implements Observer {
 			    					g.drawImage(new Rock(x * 16, y * 16).getImage(), x * 16, y * 16,null);
 			    			}
     				}
+    				
+    				
     			}
     			if(map[x][y] == 51) {//for each case in map[][] check if it is a diamond
     				if(map[x][y+1] == 52) {// if the block under the diamond is a path
@@ -196,6 +219,7 @@ class ViewPanel extends JPanel implements Observer {
     					}
     				}
     			}
+    			
     			if(map[x][y] == 49) {
     				g.drawImage(new Wall(x * 16, y*16).getImage(), x * 16, y*16,null);
     			}
