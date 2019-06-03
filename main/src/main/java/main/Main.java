@@ -13,13 +13,15 @@ import view.View;
 /**
  * The Class Main.toti
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public abstract class Main {
 
     /**
      * The main method.
+     *	Here we call every method that are needs to make the code starts well. 
      *
+     *	There is also the choice for the map.
      * @param args
      *            the arguments
      */
