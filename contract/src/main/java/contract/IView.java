@@ -19,4 +19,5 @@ public interface IView {
 	void update();
 	public void displayPlayer();
 	public void rockFall() throws IOException;
+	public void startThread();
 }

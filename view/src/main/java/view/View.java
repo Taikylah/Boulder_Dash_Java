@@ -2,6 +2,7 @@ package view;
 
 import java.awt.event.KeyEvent;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,7 +23,7 @@ public final class View implements IView, Runnable {
 
 	/** The frame. */
 	private final ViewFrame viewFrame;
-
+	int launchthread = 0;
 	/**
 	 * Instantiates a new view.
 	 *
@@ -100,11 +101,44 @@ public final class View implements IView, Runnable {
         }
     }
 
-	@Override
 	public void rockFall() throws IOException{
 		// TODO Auto-generated method stub
 		((ViewPanel) this.viewFrame.getContentPane()).rockfall(this.viewFrame.getContentPane().getGraphics());
 	}
+
+	@Override
+	public void startThread() {
+		// TODO Auto-generated method stub
+		if(launchthread != 1) {
+	    	Thread t = new Thread(new threadview());
+	        t.start();
+	        launchthread = 1;
+	        
+	    }
+	}
+public class threadview implements Runnable{
+
+    	
+    	@Override
+    	public void run(){     
+    		int i = 1 ;
+    		while(i>0) {
+    	      System.out.println("TEST");
+    	      try {
+    			rockFall();
+    		} catch (IOException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    		try {	
+    			TimeUnit.MILLISECONDS.sleep(200);
+    		} catch (InterruptedException e) {
+    			// TODO Auto-generated catch block
+    			e.printStackTrace();
+    		}
+    		}
+    		}
+    	  } 
 	
 	
 }

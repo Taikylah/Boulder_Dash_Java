@@ -1,7 +1,5 @@
 package controller;
 
-import java.io.IOException;
-
 import contract.ControllerOrder;
 import contract.IController;
 import contract.IModel;
@@ -14,10 +12,10 @@ import entity.Heros;
 public final class Controller implements IController {
 
 	/** The view. */
-	private IView		view;
+	private IView view;
 
 	/** The model. */
-	private IModel	model;
+	private IModel model;
 
 	/**
 	 * Instantiates a new controller.
@@ -92,6 +90,11 @@ public final class Controller implements IController {
 			case map5:
 				this.model.loadHelloWorld("PP");
 				break;
+				
+				/**
+			     * Character movement management according to key presses
+			     */
+			
 			case keyup:
 				System.out.println("up");
 				
@@ -102,13 +105,14 @@ public final class Controller implements IController {
                 	Heros.Y=16;
                     }
                 this.view.displayPlayer();
-			try {
+                /*try {
 				this.view.rockFall();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
-			System.out.println("Y = " + Heros.Y);
+			}*/
+		
+                System.out.println("Y = " + Heros.Y);
 				break;
 			case keydown:
 				System.out.println("down");
@@ -120,12 +124,12 @@ public final class Controller implements IController {
                 	Heros.Y=304;
                     }
                 this.view.displayPlayer();
-			try {
+			/*try {
 				this.view.rockFall();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
                 System.out.println("Y = " + Heros.Y);
 				break;
 			case keyright:
@@ -138,12 +142,12 @@ public final class Controller implements IController {
                 	Heros.X=288;
                     }
                 this.view.displayPlayer();
-			try {
+                /*try {
 				this.view.rockFall();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
                 System.out.println("X = " + Heros.X);
                	break;
 			case keyleft:
@@ -156,12 +160,12 @@ public final class Controller implements IController {
                 	Heros.X=16;
                     }
                 this.view.displayPlayer();
-			try {
+                /*try {
 				this.view.rockFall();
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			}*/
                 System.out.println("X = " + Heros.X);
 				break;
 			default:
