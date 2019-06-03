@@ -9,11 +9,9 @@ public class Rock extends Object {
 
     private Image image;
     
-    //private final String PATH_IMAGE = ;
-
-    /*public Rock() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Rocks coordinates. And also his sprite.
+}*/
     
      public Rock(int x, int y) throws IOException {
         this.x = x;

@@ -9,11 +9,9 @@ public class Mob extends Object {
 
     private Image image;
     
-    //private final String PATH_IMAGE = ;
-
-    /*public Mob() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Mobs coordinates. And also his sprite.
+}*/
     
      public Mob(int x, int y) throws IOException {
         this.x = x;

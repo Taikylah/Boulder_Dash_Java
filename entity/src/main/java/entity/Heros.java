@@ -7,7 +7,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-
+/*
+	Here you can find every informations about the hero coordinates. And also his sprite.
+}*/
 
 @SuppressWarnings("serial")
 public class Heros extends Canvas{

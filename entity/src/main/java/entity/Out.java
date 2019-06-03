@@ -9,11 +9,9 @@ public class Out extends Object {
 
     private Image image;
     
-    //private final String PATH_IMAGE = ;
-
-    /*public Rock() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Exit coordinates. And also his sprite.
+}*/
     
      public Out(int x, int y) throws IOException {
         this.x = x;

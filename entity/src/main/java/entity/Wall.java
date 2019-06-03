@@ -9,11 +9,9 @@ public class Wall extends Object {
 
     private Image image;
     
-    //private final String PATH_IMAGE = ;
-
-    /*public Rock() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Walls coordinates. And also his sprite.
+}*/
     
      public Wall(int x, int y) throws IOException {
         this.x = x;

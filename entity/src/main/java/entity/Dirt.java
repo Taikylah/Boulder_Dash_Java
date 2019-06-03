@@ -9,11 +9,9 @@ public class Dirt extends Object {
 
     private Image image;
     
-   // private final String PATH_IMAGE = ;
-
-    /*public Rock() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Dirt coordinates. And also his sprite.
+}*/
     
      public Dirt(int x, int y) throws IOException {
         this.x = x;

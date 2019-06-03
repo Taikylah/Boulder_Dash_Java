@@ -9,11 +9,9 @@ public class Path extends Object {
 
     private Image image;
     
-    //private final String PATH_IMAGE = "C:\\Users\\Vincent\\git\\Boulder_Dash_Java\\Boulder_Dash_Java\\entity\\Images\\path.png";
-
-    /*public Path() {
-		notify.controleur();
-	}*/
+    /*
+	Here you can find every informations about the Path coordinates. And also his sprite.
+*/
     
      public Path(int x, int y) throws IOException {
         this.x = x;
