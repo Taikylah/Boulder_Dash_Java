@@ -131,7 +131,7 @@ public class threadview implements Runnable{
     			e.printStackTrace();
     		}
     		try {	
-    			TimeUnit.MILLISECONDS.sleep(200);
+    			TimeUnit.MILLISECONDS.sleep(500);
     		} catch (InterruptedException e) {
     			// TODO Auto-generated catch block
     			e.printStackTrace();

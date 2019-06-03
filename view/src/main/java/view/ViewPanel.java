@@ -194,6 +194,13 @@ class ViewPanel extends JPanel implements Observer {
     					map[x][y+1] = 51;// down the rock
     					map[x][y] = 52;// place a path at the old place of the rock
     				}
+    				else if (x*16 == Heros.X && ((y*16)+16) == Heros.Y) {// if the bloc under is the player
+    					g.drawImage(new Path(x * 16, y*16).getImage(), x * 16, y*16,null);
+    					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
+    		        	viewFrame.printMessage("GAME OVER !!");
+    		        	System.exit(0);
+    							
+    				}
     				else if(map[x][y+1] == 50) {// if the block under the rock is a rock
 		    				if(map[x-1][y] == 52 ) {
 		    					if(map[x-1][y+1] == 52) {// check if left side of rocks is free
@@ -203,6 +210,12 @@ class ViewPanel extends JPanel implements Observer {
 		    					map[x-1][y+1] = 50;// down the rock
 		    					map[x][y] = 52;//put path instead
 		    					}
+		    					else if(map[x-1][y+1] == 55) {// check if left side of rocks is a mob
+				    				g.drawImage(new Diamond(x * 16, y * 16).getImage(), (x-1) * 16, (y+1) * 16,null);
+			    					g.drawImage(new Path(x * 16, y * 16).getImage(), x * 16, y * 16,null);
+			    					map[x-1][y+1] = 51;// down the rock
+			    					map[x][y] = 52;//put path instead
+			    					}
 		    				}
 			    			else if(map[x+1][y] == 52) {
 			    					if(map[x+1][y+1] == 52) {// check if right side is free
@@ -212,7 +225,15 @@ class ViewPanel extends JPanel implements Observer {
 			    					map[x+1][y+1] = 50;// down the rock
 			    					map[x][y] = 52;//put path instead
 		
-			    					}	
+			    					}
+			    					else if(map[x+1][y+1] == 55) {// check if right side is free
+					    				
+				    					g.drawImage(new Diamond(x * 16, y * 16).getImage(), (x+1) * 16, (y+1) * 16,null);
+				    					g.drawImage(new Path(x * 16, y * 16).getImage(), x * 16, y * 16,null);
+				    					map[x+1][y+1] = 51;// down the rock
+				    					map[x][y] = 52;//put path instead
+			
+				    					}
 			    				} else {
 			    					g.drawImage(new Rock(x * 16, y * 16).getImage(), x * 16, y * 16,null);
 			    			}
