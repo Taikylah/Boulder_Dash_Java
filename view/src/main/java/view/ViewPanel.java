@@ -156,7 +156,22 @@ class ViewPanel extends JPanel implements Observer {
         Font font = new Font("Courier", Font.BOLD, 12);
         score.setFont(font);
         score.setColor(Color.BLACK);
-        score.drawString(" Your curent score is " + Score, 330, 30); 
+        score.drawString(" Your curent score is " + (Score * 10), 330, 30); 
+    }
+    void displayDiamondLeft() {
+    	Graphics score = this.getGraphics();
+    	score.clearRect(330, 50, 250,50);
+    	score.setColor(Color.WHITE);
+    	score.fillRect(330, 50, 250, 50);
+        Font font = new Font("Courier", Font.BOLD, 12);
+        score.setFont(font);
+        score.setColor(Color.BLACK);
+        if(Score < 10) {
+        	score.drawString(" Diamond left to finish : " + (10 - Score), 330, 50); 
+        }else{
+        	//score.drawString(" Diamond left to finish : " + 0, 330, 50);
+        	score.drawString(" Exit Open ", 330, 50);
+        }
     }
     
     public void rockfall(Graphics g) throws IOException {	
@@ -164,7 +179,7 @@ class ViewPanel extends JPanel implements Observer {
     	for(int x = 1; x < 20; x++){
     		
     		for(int y = 1; y < 20; y++) {
-    			
+    			displayDiamondLeft();// display diamond left counter
     			if(map[x][y] == 50) {//for each case in map[][] check if it is a rock GOOD
     				if(map[x][y+1] == 52) {// if the block under the rock is a path
     					g.drawImage(new Rock(x * 16, y*16).getImage(), x * 16, y*16+16,null);
