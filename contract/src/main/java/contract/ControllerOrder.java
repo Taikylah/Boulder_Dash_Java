@@ -1,9 +1,9 @@
 package contract;
 
 /**
- * The Enum ControllerOrder.
- *
- * @author Jean-Aymeric Diet
+ * The Enum ControllerOrder. 
+ *	Here we define all the possible values.
+ * @author Groupe 3
  */
 public enum ControllerOrder {
 

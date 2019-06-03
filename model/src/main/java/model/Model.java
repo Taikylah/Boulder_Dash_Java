@@ -9,7 +9,7 @@ import entity.HelloWorld;
 /**
  * The Class Model.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public final class Model extends Observable implements IModel {
 

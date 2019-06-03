@@ -5,15 +5,16 @@ import java.io.IOException;
 /**
  * The Interface IView.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public interface IView {
 
 	/**
 	 * Prints the message.
 	 *
-	 * @param message
-	 *          the message
+	 * @param print the message
+	 * 		and all the necessary methods.
+	 *          
 	 */
 	void printMessage(final String message);
 	void update();

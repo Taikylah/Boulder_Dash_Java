@@ -17,7 +17,7 @@ import entity.Heros;
 /**
  * The Class View.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public final class View implements IView, Runnable {
 
@@ -94,6 +94,7 @@ public final class View implements IView, Runnable {
 	}
 	
 	public void displayPlayer(){
+		//Display the player
         try {
             ((ViewPanel) this.viewFrame.getContentPane()).displayPlayer(this.viewFrame.getContentPane().getGraphics(), Heros.X, Heros.Y);
         } catch (IOException ex) {
@@ -102,13 +103,13 @@ public final class View implements IView, Runnable {
     }
 
 	public void rockFall() throws IOException{
-		// TODO Auto-generated method stub
+		// Allow rock to fall (and allow us to use rockfall everywhere)
 		((ViewPanel) this.viewFrame.getContentPane()).rockfall(this.viewFrame.getContentPane().getGraphics());
 	}
 
 	@Override
 	public void startThread() {
-		// TODO Auto-generated method stub
+		// Allow the thread to start
 		if(launchthread != 1) {
 	    	Thread t = new Thread(new threadview());
 	        t.start();

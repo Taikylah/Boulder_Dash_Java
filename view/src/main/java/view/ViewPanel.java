@@ -28,7 +28,7 @@ import entity.Wall;
 /**
  * The Class ViewPanel.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 class ViewPanel extends JPanel implements Observer {
 
@@ -72,6 +72,7 @@ class ViewPanel extends JPanel implements Observer {
     }
 
     void displayScore() {
+    	//Display the score for the game
         Graphics score = this.getGraphics();
         score.clearRect(330, 20, 250,50);
         score.setColor(Color.WHITE);
@@ -82,6 +83,7 @@ class ViewPanel extends JPanel implements Observer {
         score.drawString(" Your curent score is " + (Score * 10), 330, 30); 
     }
     void displayDiamondLeft() {
+    	//Display the amount of diamonds left
         Graphics scoreLeft = this.getGraphics();
         scoreLeft.clearRect(330, 50, 250,50);
         scoreLeft.setColor(Color.WHITE);

@@ -7,7 +7,7 @@ import entity.HelloWorld;
 /**
  * The Interface IModel.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public interface IModel {
 

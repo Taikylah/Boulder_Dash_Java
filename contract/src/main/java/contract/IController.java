@@ -3,7 +3,7 @@ package contract;
 /**
  * The Interface IController.
  *
- * @author Jean-Aymeric Diet
+ * @author Groupe 3
  */
 public interface IController {
 
@@ -14,7 +14,7 @@ public interface IController {
 
 	/**
 	 * Order perform.
-	 *
+	 *		
 	 * @param controllerOrder
 	 *          the controller order
 	 */

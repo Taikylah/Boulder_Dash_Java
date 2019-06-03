@@ -72,6 +72,8 @@ public final class Controller implements IController {
 	 * (non-Javadoc)
 	 *
 	 * @see contract.IController#orderPerform(contract.ControllerOrder)
+	 * 
+	 * 		Use the different values (from 'public enum ControllerOrder' in 'contract' package) to match each case.
 	 */
 	public void orderPerform(final ControllerOrder controllerOrder) {
 		switch (controllerOrder) {
@@ -105,12 +107,8 @@ public final class Controller implements IController {
                 	Heros.Y=16;
                     }
                 this.view.displayPlayer();
-                /*try {
-				this.view.rockFall();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
+                
+                // Move to up.
 		
                 System.out.println("Y = " + Heros.Y);
 				break;
@@ -124,12 +122,9 @@ public final class Controller implements IController {
                 	Heros.Y=304;
                     }
                 this.view.displayPlayer();
-			/*try {
-				this.view.rockFall();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
+                
+             // Move to down.
+                
                 System.out.println("Y = " + Heros.Y);
 				break;
 			case keyright:
@@ -142,12 +137,9 @@ public final class Controller implements IController {
                 	Heros.X=288;
                     }
                 this.view.displayPlayer();
-                /*try {
-				this.view.rockFall();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
+                
+             // Move to right.
+                
                 System.out.println("X = " + Heros.X);
                	break;
 			case keyleft:
@@ -160,12 +152,9 @@ public final class Controller implements IController {
                 	Heros.X=16;
                     }
                 this.view.displayPlayer();
-                /*try {
-				this.view.rockFall();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}*/
+                
+                // Move to left.
+                
                 System.out.println("X = " + Heros.X);
 				break;
 			default:
